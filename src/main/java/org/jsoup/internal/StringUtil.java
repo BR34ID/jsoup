@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.IntStream;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -72,8 +73,7 @@ public final class StringUtil {
         if (width < padding.length)
             return padding[width];
         char[] out = new char[width];
-        for (int i = 0; i < width; i++)
-            out[i] = ' ';
+        IntStream.rangeClosed(0, width).forEach(index -> out[index] = ' ');
         return String.valueOf(out);
     }
 
